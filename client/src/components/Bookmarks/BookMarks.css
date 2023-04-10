@@ -1,0 +1,44 @@
+.notes{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    min-width: 33%px;
+    min-height: 500px;
+    height: auto;
+    background-color: black;
+    width: fit-content;
+    margin-left: 33%;
+    margin-right: 33%;
+    border-radius: 10px;
+    background-image: URL("https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixid=Mnw0MDkzODR8MHwxfHNlYXJjaHwxfHxyZWNpcGVzfGVufDB8fHx8MTY4MTA4MDE1OQ&ixlib=rb-4.0.3");
+    background-size: cover;
+    border: 2px solid white ;
+    padding:1rem ;
+
+    
+}
+ .bookCont{
+    width: 100%;
+    min-width: 40rem;
+    min-height: 30rem;
+    height: auto;
+    background-color:rgb(145, 144, 142) ;
+    border-radius: 10px;
+    opacity: 70%;
+    border: 2px solid white;
+ }
+
+ 
+  @media (min-width: 768px) {
+    .bookCont {
+      width: 50%;
+      height: 400px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .bookCont {
+      width: 33.33%;
+      height: 500px;
+    }
+  }
