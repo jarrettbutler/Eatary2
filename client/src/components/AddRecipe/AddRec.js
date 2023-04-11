@@ -94,7 +94,7 @@ console.log(enteredTitle,enteredUrl,)
         <div>
         <button className="Upload" type="submit" onClick={UploadHandler}> Upload</button>
         <a href="/">
-          <button className="Upload">Go to Hope Page</button>
+          <button className="Upload">Go to Home Page</button>
         </a>
       </div>
       </div>
