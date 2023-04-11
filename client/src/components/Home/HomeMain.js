@@ -1,17 +1,22 @@
 import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+
 import "./HomeMain.css";
 import Recipe from "./Recipe";
 import Ingredients from "./Ingredients";
 
 function Main(props) {
+
   const[UserInput, setUserInput]=useState('')
   const [hide, setHide] = useState("hide");
+  const [SearchRes,SetSearchRes]=useState([]);
   
-  
-  const SearchHandler = (event) => {
+  const SearchHandler = async (event) => {
     event.preventDefault();
     setHide("recipeBar");
+    SetSearchRes( await fetch(`/api/recipes/find?search=${UserInput}`).then(
+      (res) => res.json()
+      
+    ));
   };
 const InputHandler=(event)=>{
   event.preventDefault();
@@ -39,7 +44,7 @@ const InputHandler=(event)=>{
               <button className="Add">Add recipe</button>
             </a>
             <a href="/Bookmarks">
-              <button className="Bookmark">Cooking Book</button>
+              <button className="Bookmark">Cook Book</button>
             </a>
 
             <button className="Logout" onClick={props.onLogout}>
@@ -49,9 +54,10 @@ const InputHandler=(event)=>{
         </div>
         <div className="Content">
           <div className="Recepies">
-            <Recipe />
-            <Recipe />
-            <Recipe />
+          {SearchRes.map((res)=><Recipe  results={res}/>
+          )
+  
+          }
           </div>
           <div className="Ingridients">
             <div className={hide}>
