@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/LogIn";
 import Home from "./components/Home/HomeMain";
 import AddRecipe from "./components/AddRecipe/AddRec";
-import Bookmarks from './components/Bookmarks/BookMarks'
+import Bookmarks from './components/Bookmarks/CookBook'
 import "./App.css";
 //<Login/>
 function App() {

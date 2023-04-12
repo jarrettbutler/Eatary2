@@ -1,26 +1,26 @@
 import { Fragment } from "react"
-
+import "./Recipe.css"
 const Recepies=(props)=>{
 
  return(
-   <Fragment>
-       <ul class="results">
+   <Fragment >
+       <ul className="results">
           
-            <li class="preview">
-              <a class="preview__link preview__link--active" href="{{data.id}}">
-                <figure class="preview__fig">
-                  <img class="preview_img" src={props.result.image} alt="Test" />
+            <li className="preview">
+              <a className="preview__link preview__link--active" href={props.id} >
+                <figure className="preview__fig">
+                  <img className="preview_img" src={props.image} alt="Test" />
                 </figure>
-                <div class="preview__data">
-                  <h4 class="preview__title">
-                    {props.result.title}
+                <div className="preview__data">
+                  <h4 className="preview__title">
+                    {props.title}
                   </h4>
-                  <p class="preview__publisher">{props.result.publisher}</p>
+                  <p className="preview__publisher">{props.publisher}</p>
                   
-                  <div class="preview__user-generated">
-                    <svg class="preview__icon">
-                      <use href="/media/icons.svg#icon-user"></use>
-                    </svg>
+                  <div className="preview__user-generated">
+                   {/* <svg className="preview__icon">*/}
+                      {/* <use href="/media/icons.svg#icon-user"></use> */}
+                    {/*</svg>*/}
                   </div>
                
                 </div>
