@@ -5,23 +5,22 @@ import Recipe from "./Recipe";
 import Ingredients from "./Ingredients";
 
 function Main(props) {
-
-  const[UserInput, setUserInput]=useState('')
+  const [UserInput, setUserInput] = useState("");
   const [hide, setHide] = useState("hide");
-  const [SearchRes,SetSearchRes]=useState([]);
-  
+  const [SearchRes, SetSearchRes] = useState([]);
+  const InputHandler = (event) => {
+    event.preventDefault();
+    setUserInput(event.target.value);
+  };
   const SearchHandler = async (event) => {
     event.preventDefault();
-    setHide("recipeBar");
-    SetSearchRes( await fetch(`/api/recipes/find?search=${UserInput}`).then(
-      (res) => res.json()
-      
-    ));
+    setHide("");
+    const Result = await fetch(`/api/recipes/find?search=${UserInput}`);
+    const JsonResult = await Result.json();
+    SetSearchRes(JsonResult);
+    console.log(JsonResult);
   };
-const InputHandler=(event)=>{
-  event.preventDefault();
-  setUserInput(event.target.value)
-}
+
   return (
     <Fragment>
       <div className="Container">
@@ -33,7 +32,6 @@ const InputHandler=(event)=>{
               onChange={InputHandler}
               value={UserInput}
               placeholder="Type here to search"
-
             ></input>
             <button className="SearchButton" onClick={SearchHandler}>
               Search
@@ -54,24 +52,31 @@ const InputHandler=(event)=>{
         </div>
         <div className="Content">
           <div className="Recepies">
-          {SearchRes.map((res)=><Recipe  results={res}/>
-          )
-  
-          }
+            {SearchRes.map((res, i) => {
+              return (
+                <Recipe
+                  title={res.title}
+                  image={res.image}
+                  publisher={res.publisher}
+                  key={i}
+                  id={props.id}
+                />
+              );
+            })}
           </div>
           <div className="Ingridients">
             <div className={hide}>
-              <p className={hide}>{"Cooking Time:"}</p>
-
-              <p className={hide}>servings:{"1"}</p>
-              <button>+</button>
-              <button>-&nbsp; </button>
-
-              <button className="addB">Add bookmark</button>
+              <div className="recipeBar">
+                <p>{"Cooking Time:"}</p>
+                <p>servings:{"1"}</p>
+                <button>+</button>
+                <button>-&nbsp; </button>
+                <button className="addB">Add bookmark</button>
+              </div>
+              <div>
+                <Ingredients />
+              </div>
             </div>
-            <Ingredients />
-            <Ingredients />
-            <Ingredients />
           </div>
         </div>
       </div>

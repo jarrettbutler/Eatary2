@@ -34,7 +34,9 @@ console.log(enteredTitle,enteredUrl,)
 
   return (
     <Fragment>
-      <div className="cont">
+      <div className="cont"> 
+      <p className="header">Add Your Recipe</p>
+        
         <div className="AddRec ">
           <div className="RecData">
             Recipe Data
@@ -67,27 +69,27 @@ console.log(enteredTitle,enteredUrl,)
             Ingredients
             <div className="Ingredient1 bt">
               <label>Ingredient 1</label>
-              <input type="text"  onChange={Ingredient1Handler}value={enteredIng1}/>
+              <input type="text"  onChange={Ingredient1Handler}value={enteredIng1} placeholder="Format: 'Quantity,Unit,Description'"/>
             </div>
             <div className="Ingredient2 bt">
               <label>Ingredient 2</label>
-              <input type="text" onChange={Ingredient2Handler} value={enteredIng2}/>
+              <input type="text" onChange={Ingredient2Handler} value={enteredIng2} placeholder="Format: 'Quantity,Unit,Description'"/>
             </div>
             <div className="Ingredient3 bt">
               <label>Ingredient 3</label>
-              <input type="text" onChange={Ingredient3Handler}value={enteredIng3}/>
+              <input type="text" onChange={Ingredient3Handler}value={enteredIng3}placeholder="Format: 'Quantity,Unit,Description'"/>
             </div>
             <div className="Ingredients4 bt">
               <label>Ingredient 4</label>
-              <input type="text" onChange={Ingredient4Handler}value={enteredIng4} />
+              <input type="text" onChange={Ingredient4Handler}value={enteredIng4} placeholder="Format: 'Quantity,Unit,Description'" />
             </div>
             <div className="Ingredient5 bt">
               <label>Ingredient 5</label>
-              <input type="text" onChange={Ingredient5Handler}value={enteredIng5} />
+              <input type="text" onChange={Ingredient5Handler}value={enteredIng5}placeholder="Format: 'Quantity,Unit,Description'" />
             </div>
             <div className="Ingredient6 bt">
               <label>Ingredient 6</label>
-              <input type="text" onChange={Ingredient6Handler} value={enteredIng6}/>
+              <input type="text" onChange={Ingredient6Handler} value={enteredIng6} placeholder="Format: 'Quantity,Unit,Description'"/>
             </div>
           </div>
         </div>

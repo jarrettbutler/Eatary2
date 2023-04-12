@@ -5,7 +5,7 @@
     height: auto;
 
     width: fit-content;
-    margin-left: 25%;
+    margin-left: 33%;
     border-radius: 10px;
     background-image: URL("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixid=Mnw0MDkzODR8MHwxfHNlYXJjaHwxfHxjdWlzaW5lfGVufDB8fHx8MTY4MTA2MTI4NA&ixlib=rb-4.0.3");
     background-size: cover;
@@ -29,12 +29,12 @@
     margin-left: 5px;
     width: 200px;
     min-height: 440px;
-    height: auto;
+    height: 400px;
     background-color:rgb(240, 238, 236) ;
     border-radius: 10px;
-    opacity: 70%;
+    opacity: 75%;
     border: 2px solid white;
-     
+    overflow:auto
 }
 .Ingridients{
     margin-left: 10px;
@@ -42,8 +42,11 @@
     height: 440px;
     background-color:rgb(240, 238, 236) ;
     border-radius: 10px;
-    opacity: 70%;
-    border: 2px solid white
+    opacity: 75%;
+    border: 2px solid white;
+    text-align: start;
+    padding:1%
+    
 
 
 }
