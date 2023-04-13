@@ -8,6 +8,8 @@ function Main(props) {
   const [UserInput, setUserInput] = useState("");
   const [hide, setHide] = useState("hide");
   const [SearchRes, SetSearchRes] = useState([]);
+  const [target, setTarget] = useState("");
+  const [singleRec, setSingleRec] = useState("");
   const InputHandler = (event) => {
     event.preventDefault();
     setUserInput(event.target.value);
@@ -19,6 +21,14 @@ function Main(props) {
     const JsonResult = await Result.json();
     SetSearchRes(JsonResult);
     console.log(JsonResult);
+  };
+
+  const searched = async (e) => {
+    const att = e.target.closest(".results").getAttribute("data-id");
+    setTarget(att);
+    const Result = await fetch(`/api/recipes/${att}`);
+    const JsonResult = await Result.json();
+    setSingleRec(JsonResult);
   };
 
   return (
@@ -51,7 +61,7 @@ function Main(props) {
           </div>
         </div>
         <div className="Content">
-          <div className="Recepies">
+          <div onClick={searched} className="Recepies">
             {SearchRes.map((res, i) => {
               return (
                 <Recipe
@@ -59,7 +69,7 @@ function Main(props) {
                   image={res.image}
                   publisher={res.publisher}
                   key={i}
-                  id={props.id}
+                  id={res.id}
                 />
               );
             })}
@@ -74,7 +84,7 @@ function Main(props) {
                 <button className="addB">Add bookmark</button>
               </div>
               <div>
-                <Ingredients />
+                <Ingredients recipe={singleRec} />
               </div>
             </div>
           </div>
