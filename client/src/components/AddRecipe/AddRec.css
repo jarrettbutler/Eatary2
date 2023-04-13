@@ -1,0 +1,59 @@
+
+.cont {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 700px;
+    margin-left: 33%;
+    background-image: URL("https://images.unsplash.com/photo-1495461199391-8c39ab674295?ixid=Mnw0MDkzODR8MHwxfHNlYXJjaHw0fHxjb29rfGVufDB8fHx8MTY4MTA1OTg5Ng&ixlib=rb-4.0.3");
+    background-size: cover;
+    border-radius: 10px;
+}
+.header {
+   
+    color:antiquewhite;
+    font-size: 2em;
+}
+.AddRec {
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    min-height: 400px;
+    width: 700px;
+    
+    border-radius: 10px;
+    padding: 1rem;
+
+}
+.RecData,.Ingredients{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 330px;
+    height: 450px;
+    background-color:rgb(222, 220, 216) ;
+    border-radius: 10px;
+    border: 3px solid white;
+    padding:1rem;
+    padding-bottom: 1.2rem;
+    opacity: 70%;
+    
+}
+  
+
+.bt{
+    display: flex;
+    justify-content: space-between;
+}
+.Upload{
+    margin: 1rem;
+    width: 10%;
+    opacity: 50%;
+    margin-bottom: 10px;
+    width: fit-content;
+
+}

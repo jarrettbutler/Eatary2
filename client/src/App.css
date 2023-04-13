@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+  background-image:url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?crop=entropy&cs=srgb&fm=jpg&ixid=Mnw0MDkzODR8MHwxfHNlYXJjaHwyfHxmb29kfGVufDB8fHx8MTY4MTA1OTM3OQ&ixlib=rb-4.0.3&q=85') ;
+  background-size:cover;
+  
+  min-height: 100vh;
+}
+ h1{
+  font-size: 10vh;
+  color: aliceblue;
+ }
+
