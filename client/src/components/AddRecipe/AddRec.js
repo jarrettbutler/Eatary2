@@ -13,15 +13,14 @@ const AddRecipe  = () => {
    const[enteredIng4, setEnteredIng4]=useState('')
    const[enteredIng5, setEnteredIng5]=useState('')
    const[enteredIng6, setEnteredIng6]=useState('')
-
+   const [Msg, setMsg] = useState("");
+   const [info, setInfo] = useState("");
   const TitleHandler=(event)=>{setEntEredTitle(event.target.value)  }
   const UrlHandler=(event)=>{setEnteredUrl(event.target.value)  }
   const ImgUrlHandler=(event)=>{setEnteredImUrl(event.target.value)  }
   const PublisherlHandler=(event)=>{setEnteredPublisher(event.target.value)}
   const PrepTimelHandler=(event)=>{setEnteredPrepTime(event.target.value)}
   const ServingsHandler=(event)=>{setEnteredServings(event.target.value)}
-
-
 
   const Ingredient1Handler=(event)=>{setEnteredIng1(event.target.value)}
   const Ingredient2Handler=(event)=>{setEnteredIng2(event.target.value)}
@@ -32,17 +31,38 @@ const AddRecipe  = () => {
 
 
   const UploadHandler=async(event)=> {event.preventDefault()
+    
     const userGenerated=true
     const ingredients=[]
     ingredients.push(enteredIng1,enteredIng2,enteredIng3,enteredIng4,enteredIng5,enteredIng6)
+    if(title==="" || publisher==="" || servings==='' || image==='' || cookingTime==='' ||sourceUrl===''){ 
+      setMsg('All fields in Recipe Data section has to be filled')
+      setInfo("error")
+      
+    } else{
     console.log(ingredients)
  await fetch('/api/recipes', {
     method: 'POST',
      body: JSON.stringify({ userGenerated, title, publisher, sourceUrl, image, servings, cookingTime, ingredients }),
       headers: { 'Content-Type': 'application/json' },})
-// console.log(enteredTitle,enteredUrl,)
+ setMsg('Your recipe has been successfully added')
+ setInfo("success")
+  setEntEredTitle('')
+   setEnteredUrl('')
+  setEnteredImUrl('')
+  setEnteredPublisher('')
+  setEnteredPrepTime('')
+  setEnteredServings('')
+  setEnteredIng1('')
+  setEnteredIng2('')
+  setEnteredIng3('')
+  setEnteredIng4('')
+  setEnteredIng5('')
+  setEnteredIng6('')
    }
-
+ 
+  }
+    
   return (
     <Fragment>
       <div className="cont"> 
@@ -104,7 +124,10 @@ const AddRecipe  = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="Msg">
+        <p className={info}>{Msg}</p>
+        </div>
+        <div >
         <button className="Upload" type="submit" onClick={UploadHandler}> Upload</button>
         <a href="/">
           <button className="Upload">Go to Home Page</button>
