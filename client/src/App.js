@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/LogIn";
 import Home from "./components/Home/HomeMain";
 import AddRecipe from "./components/AddRecipe/AddRec";
-import Bookmarks from './components/Bookmarks/CookBook'
+import Bookmarks from './components/Bookmarks/CookBook';
+import Contact from "./components/Contact/contact";
 import "./App.css";
 //<Login/>
 function App() {
@@ -45,6 +46,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+   
   );
 }
 
