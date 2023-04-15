@@ -1,6 +1,6 @@
 
 .cont {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,10 +50,38 @@
     justify-content: space-between;
 }
 .Upload{
-    margin: 1rem;
+    margin-left:4rem; 
+    margin-right:4rem; 
     width: 10%;
     opacity: 50%;
     margin-bottom: 10px;
     width: fit-content;
 
+}
+.Msg{ 
+    border-radius: 15px;
+    width: fit-content;
+    margin-left: 30%;
+    padding-left: 10px;
+    padding-right: 10px;
+    opacity:70%;
+    height: 10px;
+    margin-bottom:15px;
+   
+  
+}
+
+.success{ 
+    color:green;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding-left: 3px;
+    padding-right: 3px;  
+}
+.error{
+    color: red;
+    background-color: antiquewhite;
+    border-radius: 15px;
+    padding-left: 3px;
+    padding-right: 3px;
 }

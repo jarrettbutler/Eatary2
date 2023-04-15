@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { useParams } from "react-router-dom";
 import "./Ingredients.css";
 const Ingredients = (props) => {
-  console.log(props.recipe);
+  console.log(props.recipe.title);
   if (!props.recipe) {
     return (
       <h1 style={{ color: "black", fontSize: "20px" }}>

@@ -1,25 +1,27 @@
 import React, { Fragment, useState } from "react";
 import "./AddRec.css";
-const AddRecipe = () => {
-   const[enteredTitle, setEntEredTitle]=useState('')
-   const[enteredUrl, setEnteredUrl]=useState('')
-   const[enteredImUrl, setEnteredImUrl]=useState('')
-   const[enteredPublisher, setEnteredPublisher]=useState('')
-   const[enteredPrepTime, setEnteredPrepTime]=useState('')
-   const[enteredServings, setEnteredServings]=useState('')
+const AddRecipe  = () => {
+   const[title, setEntEredTitle]=useState('')
+   const[sourceUrl, setEnteredUrl]=useState('')
+   const[image, setEnteredImUrl]=useState('')
+   const[publisher, setEnteredPublisher]=useState('')
+   const[cookingTime, setEnteredPrepTime]=useState('')
+   const[servings, setEnteredServings]=useState('')
    const[enteredIng1, setEnteredIng1]=useState('')
    const[enteredIng2, setEnteredIng2]=useState('')
    const[enteredIng3, setEnteredIng3]=useState('')
    const[enteredIng4, setEnteredIng4]=useState('')
    const[enteredIng5, setEnteredIng5]=useState('')
    const[enteredIng6, setEnteredIng6]=useState('')
-
+   const [Msg, setMsg] = useState("");
+   const [info, setInfo] = useState("");
   const TitleHandler=(event)=>{setEntEredTitle(event.target.value)  }
   const UrlHandler=(event)=>{setEnteredUrl(event.target.value)  }
   const ImgUrlHandler=(event)=>{setEnteredImUrl(event.target.value)  }
   const PublisherlHandler=(event)=>{setEnteredPublisher(event.target.value)}
   const PrepTimelHandler=(event)=>{setEnteredPrepTime(event.target.value)}
   const ServingsHandler=(event)=>{setEnteredServings(event.target.value)}
+
   const Ingredient1Handler=(event)=>{setEnteredIng1(event.target.value)}
   const Ingredient2Handler=(event)=>{setEnteredIng2(event.target.value)}
   const Ingredient3Handler=(event)=>{setEnteredIng3(event.target.value)}
@@ -28,10 +30,39 @@ const AddRecipe = () => {
   const Ingredient6Handler=(event)=>{setEnteredIng6(event.target.value)}
 
 
-  const UploadHandler=(event)=>{event.preventDefault()
-console.log(enteredTitle,enteredUrl,)
+  const UploadHandler=async(event)=> {event.preventDefault()
+    
+    const userGenerated=true
+    const ingredients=[]
+    ingredients.push(enteredIng1,enteredIng2,enteredIng3,enteredIng4,enteredIng5,enteredIng6)
+    if(title==="" || publisher==="" || servings==='' || image==='' || cookingTime==='' ||sourceUrl===''){ 
+      setMsg('All fields in Recipe Data section has to be filled')
+      setInfo("error")
+      
+    } else{
+    console.log(ingredients)
+ await fetch('/api/recipes', {
+    method: 'POST',
+     body: JSON.stringify({ userGenerated, title, publisher, sourceUrl, image, servings, cookingTime, ingredients }),
+      headers: { 'Content-Type': 'application/json' },})
+ setMsg('Your recipe has been successfully added')
+ setInfo("success")
+  setEntEredTitle('')
+   setEnteredUrl('')
+  setEnteredImUrl('')
+  setEnteredPublisher('')
+  setEnteredPrepTime('')
+  setEnteredServings('')
+  setEnteredIng1('')
+  setEnteredIng2('')
+  setEnteredIng3('')
+  setEnteredIng4('')
+  setEnteredIng5('')
+  setEnteredIng6('')
    }
-
+ 
+  }
+    
   return (
     <Fragment>
       <div className="cont"> 
@@ -42,27 +73,27 @@ console.log(enteredTitle,enteredUrl,)
             Recipe Data
             <div className="Title bt">
               <label>Title</label>
-              <input type="text" onChange={TitleHandler} value={enteredTitle} />
+              <input type="text" onChange={TitleHandler} value={title} />
             </div>
             <div className="Url bt">
               <label>URL</label>
-              <input type="text" onChange={UrlHandler}value={enteredUrl} />
+              <input type="text" onChange={UrlHandler}value={sourceUrl} />
             </div>
             <div className="ImageUrl bt">
               <label>Image URL</label>
-              <input type="text" onChange={ImgUrlHandler} value={enteredImUrl} />
+              <input type="text" onChange={ImgUrlHandler} value={image} />
             </div>
             <div className="Publish bt">
               <label>Publisher</label>
-              <input type="text" onChange={PublisherlHandler} value={enteredPublisher}/>
+              <input type="text" onChange={PublisherlHandler} value={publisher}/>
             </div>
             <div className="PrepTime bt">
               <label>Preparation Time</label>
-              <input type="text" onChange={PrepTimelHandler}value={enteredPrepTime} />
+              <input type="text" onChange={PrepTimelHandler}value={cookingTime} />
             </div>
             <div className="Servings bt">
               <label>Servings</label>
-              <input type="text" onChange={ServingsHandler}value={enteredServings} />
+              <input type="text" onChange={ServingsHandler}value={servings} />
             </div>
           </div>
           <div className="Ingredients">
@@ -93,7 +124,10 @@ console.log(enteredTitle,enteredUrl,)
             </div>
           </div>
         </div>
-        <div>
+        <div className="Msg">
+        <p className={info}>{Msg}</p>
+        </div>
+        <div >
         <button className="Upload" type="submit" onClick={UploadHandler}> Upload</button>
         <a href="/">
           <button className="Upload">Go to Home Page</button>
