@@ -4,7 +4,8 @@ import Login from "./components/LogIn";
 import Home from "./components/Home/HomeMain";
 import AddRecipe from "./components/AddRecipe/AddRec";
 import Bookmarks from './components/Bookmarks/CookBook';
-import Contact from "./components/Contact/contact";
+// import Contact from "./components/Contact/contact";
+import BuyButtonComponent from "./components/BuyButtonComponent";
 import "./App.css";
 //<Login/>
 function App() {
@@ -41,10 +42,15 @@ function App() {
               )
             }
           />
+           
           <Route path="/addRecipe" element={<AddRecipe />} />
+        
           <Route path="/Bookmarks" element={<Bookmarks />} />
         </Routes>
+        <BuyButtonComponent/>
+       
       </div>
+      
     </Router>
    
   );

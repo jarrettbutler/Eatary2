@@ -3,7 +3,8 @@ import React, { Fragment, useState } from "react";
 import "./HomeMain.css";
 import Recipe from "./Recipe";
 import Ingredients from "./Ingredients";
-import Contact from "../Contact/contact";
+
+
 
 function Main(props) {
   const [UserInput, setUserInput] = useState("");
@@ -32,15 +33,15 @@ function Main(props) {
     setSingleRec(JsonResult);
   };
 
-  const ContactHandler = async (e) => {
-    // e.preventDefault()
-    setHide("hide");
-    document.querySelector('.Header').classList.add = "hide";
-    document.querySelector('.Content').classList.add = "hide";
+  // // const ContactHandler = async (e) => {
+  // //   // e.preventDefault()
+  // //   setHide("hide");
+  // //   document.querySelector('.Header').classList.add = "hide";
+  // //   document.querySelector('.Content').classList.add = "hide";
 
 
 
-  }
+  // }
   return (
     <Fragment>
       <div className="Container">
@@ -68,7 +69,8 @@ function Main(props) {
             <button className="Logout" onClick={props.onLogout}>
               LogOut
             </button>
-            <button className="SearchButton" onClick={ContactHandler}>Contact Me</button>
+            {/* <button className="SearchButton" onClick={ContactHandler}>Contact Me</button> */}
+           
           </div>
         </div>
         <div className="Content">
@@ -102,9 +104,13 @@ function Main(props) {
         </div>
       </div>
 
+    
+{/* 
       <Contact >
 
-      </Contact>
+      </Contact> */}
+
+     
     </Fragment>
 
   );
